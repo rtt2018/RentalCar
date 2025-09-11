@@ -9,7 +9,7 @@ export default function Catalog() {
       <div className={styles.wrapper}>
         <Filters />
         <CarList />
-        {/* <LoadMore /> */}
+        <LoadMore />
       </div>
     </section>
   );

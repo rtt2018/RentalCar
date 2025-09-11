@@ -1,22 +1,25 @@
-import styles from "./LoadMore.module.css";
 import {
-  useSelector,
-  // useDispatch
-} from "react-redux";
+  getHasNextPage,
+  getIsLoading,
+  getPage,
+} from "../../redux/cars/selectors";
+import { setPaginationParams } from "../../redux/cars/slice";
+import styles from "./LoadMore.module.css";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function LoadMore() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const currentPage = useSelector();
-  // const totalPages = useSelector();
-  // const loading = useSelector();
+  const currentPage = useSelector(getPage);
+  const hasNextPage = useSelector(getHasNextPage);
+  const loading = useSelector(getIsLoading);
 
   const handleLoadMore = () => {
-    // const nextPage = (currentPage ?? 1) + 1;
-    // dispatch(setNextPage(nextPage));
+    const nextPage = (currentPage ?? 1) + 1;
+    dispatch(setPaginationParams({ page: nextPage, limit: 12 }));
   };
 
-  if (!totalPages || currentPage >= totalPages) {
+  if (!hasNextPage) {
     return null;
   }
 
