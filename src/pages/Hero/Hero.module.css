@@ -1,0 +1,49 @@
+.container {
+  width: 1440px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("/src/images/PictureHero@1x.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-clip: border-box;
+  margin: 0 auto;
+}
+
+.sectionWrapper {
+  padding: 440px 120px 60px;
+}
+
+.wrapper {
+  width: 784px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  margin: 0 auto;
+}
+
+.heroHead {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--white);
+  margin: 0 0 16px;
+}
+
+.heroSlogan {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  text-align: center;
+  color: var(--white);
+  margin: 0;
+}
+
+.heroButton {
+  padding-block: 12px;
+  padding-inline: 88px;
+  width: 276px;
+  height: 44px;
+}

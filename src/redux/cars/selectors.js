@@ -1,0 +1,13 @@
+export const getCars = (state) => state.cars.cars;
+export const getPage = (state) => state.cars.page;
+export const getTotalCars = (state) => state.cars.totalCars;
+export const getTotalPages = (state) => state.cars.totalPages;
+export const getLimit = (state) => state.cars.limit;
+export const geBrand = (state) => state.cars.brand;
+export const getRentalPrice = (state) => state.cars.rentalPrice;
+export const getMinMileage = (state) => state.cars.minMileage;
+export const getMaxMileage = (state) => state.cars.maxMileage;
+export const getHasPreviousPage = (state) => state.cars.hasPreviousPage;
+export const getHasNextPage = (state) => state.cars.hasNextPage;
+export const getIsLoading = (state) => state.cars.isLoading;
+export const getIsError = (state) => state.cars.isError;

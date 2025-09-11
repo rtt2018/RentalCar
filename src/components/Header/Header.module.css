@@ -1,0 +1,64 @@
+.container {
+  /* styles for Header */
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 68px;
+  border-bottom: 1px solid var(--badges);
+  background: var(--badges);
+}
+
+.wrapper {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 24px 120px;
+}
+
+.logoWrapper {
+  width: 102px;
+  height: 16px;
+}
+
+.logoImg {
+  width: 102px;
+  height: 16px;
+}
+
+.navElement {
+}
+
+.navList {
+  display: flex;
+  gap: 32px;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
+.navListItem {
+}
+
+.link {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--main);
+}
+
+.linkActive {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--button-hover);
+}
