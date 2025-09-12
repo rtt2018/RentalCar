@@ -3,7 +3,7 @@ import styles from "./Hero.module.css";
 
 export default function Hero() {
   return (
-    <section id="hero" className={styles.container}>
+    <div className={styles.container}>
       <div className={styles.sectionWrapper}>
         <div className={styles.wrapper}>
           <div>
@@ -19,6 +19,6 @@ export default function Hero() {
           </Link>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

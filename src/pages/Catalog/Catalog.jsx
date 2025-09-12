@@ -5,12 +5,12 @@ import Filters from "../../components/Filters/Filters";
 
 export default function Catalog() {
   return (
-    <section className={styles.container}>
+    <div className={styles.container}>
       <div className={styles.wrapper}>
         <Filters />
         <CarList />
         <LoadMore />
       </div>
-    </section>
+    </div>
   );
 }

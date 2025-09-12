@@ -7,7 +7,9 @@ export default function Main() {
     <>
       <Header />
       <main className={styles.container}>
-        <Outlet />
+        <section className={styles.section}>
+          <Outlet />
+        </section>
       </main>
     </>
   );

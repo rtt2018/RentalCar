@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import styles from "./Header.module.css";
 
 export default function Header() {
@@ -6,9 +6,11 @@ export default function Header() {
     <header className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.logoWrapper}>
-          <svg className={styles.logoImg}>
-            <use href="/sprite.svg#icon-Logo"></use>
-          </svg>
+          <Link to={"/"}>
+            <svg className={styles.logoImg}>
+              <use href="/sprite.svg#icon-Logo"></use>
+            </svg>
+          </Link>
         </div>
         <nav className={styles.navElement}>
           <ul className={styles.navList}>

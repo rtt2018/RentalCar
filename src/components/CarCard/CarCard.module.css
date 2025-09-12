@@ -1,8 +1,8 @@
 .container {
   /* styles for CarCard */
-  width: 276px;
+  /* width: 276px; */
   height: 424px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .card {
@@ -11,7 +11,4 @@
   justify-content: flex-start;
   flex-direction: column;
   gap: 28px;
-  width: 276px;
-  height: 424px;
-  border: 1px solid black;
 }
