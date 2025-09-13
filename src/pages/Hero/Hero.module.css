@@ -40,8 +40,23 @@
 }
 
 .heroButton {
+  box-sizing: border-box;
   padding-block: 12px;
   padding-inline: 88px;
   width: 276px;
   height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 0px;
+  border-radius: 12px;
+  border: none;
+  background: var(--button);
+  transition: background-color 300ms ease-in-out;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--white);
 }
