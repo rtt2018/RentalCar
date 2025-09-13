@@ -9,6 +9,7 @@
   height: 68px;
   border-bottom: 1px solid var(--badges);
   background: var(--badges);
+  z-index: 999;
 }
 
 .wrapper {

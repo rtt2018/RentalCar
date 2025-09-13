@@ -1,8 +1,5 @@
 .container {
-  /* styles for CarCard */
-  /* width: 276px; */
-  height: 424px;
-  /* border: 1px solid black; */
+  position: relative;
 }
 
 .card {
@@ -10,5 +7,96 @@
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  gap: 28px;
+}
+
+.thumb {
+  width: 100%;
+  height: 268px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 20, 23, 0.5) 0%,
+    rgba(18, 20, 23, 0.5) 100%
+  );
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.carImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+.descriptionHead {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.brandWrap {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main);
+}
+
+.modelName {
+  color: var(--button);
+}
+
+.descrWrap {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33333;
+  color: var(--gray);
+  display: flex;
+  flex-direction: column;
+}
+
+.descrAddr {
+  display: flex;
+  margin-bottom: 4px;
+}
+
+.vl {
+  display: inline-block;
+  height: 16px;
+  border-left: 2px solid var(--gray-light);
+  margin: 0 6px;
+}
+
+.icon-Vector-5 {
+  width: 0.125em;
+}
+
+.detailButton {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 0px;
+  border-radius: 12px;
+  border: none;
+  background: var(--button);
+  transition: background-color 300ms ease-in-out;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--white);
 }

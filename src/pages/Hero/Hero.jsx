@@ -12,10 +12,8 @@ export default function Hero() {
               Reliable and budget-friendly rentals for any journey
             </p>
           </div>
-          <Link to="/catalog">
-            <button type="button" className={styles.heroButton}>
-              View Catalog
-            </button>
+          <Link to="/catalog" className={styles.heroButton}>
+            View Catalog
           </Link>
         </div>
       </div>

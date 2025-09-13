@@ -11,9 +11,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />}>
           <Route index element={<Hero />} />
-          <Route path="catalog" element={<Catalog />}>
-            <Route path=":id" element={<CarDetail />} />
-          </Route>
+          <Route path="catalog" element={<Catalog />} />
+          <Route path="catalog/:id" element={<CarDetail />} />
         </Route>
       </Routes>
     </>

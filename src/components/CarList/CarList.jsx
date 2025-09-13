@@ -7,6 +7,7 @@ import CarCard from "../CarCard/CarCard";
 
 export default function CarList() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getCarsItems());
   }, [dispatch]);
