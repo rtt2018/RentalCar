@@ -26,6 +26,7 @@ const filtersSlice = createSlice({
       state.maxMileage = action.payload;
     },
     setAllFilters(state, action) {
+      console.log("🚀 ~ setAllFilters ~ action:", action);
       state.brand = action.payload.brand ?? "";
       state.rentalPrice = action.payload.rentalPrice ?? "";
       state.minMileage = action.payload.minMileage ?? "";

@@ -6,6 +6,7 @@ import { getBrandsListSelector } from "../../redux/brands/selectors";
 import { getBrandsList } from "../../redux/brands/operations";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { setAllFilters } from "../../redux/filters/slice";
 
 export default function Filters() {
   const dispatch = useDispatch();
@@ -139,15 +140,15 @@ export default function Filters() {
   });
 
   const handleClick = (values) => {
-    console.log("🚀 ~ handleClick ~ values:", values);
+    dispatch(setAllFilters(values));
   };
 
   return (
     <div className={styles.container}>
       <Formik
         initialValues={{
-          brandSelect: null,
-          priceSelect: null,
+          brand: "",
+          rentalPrice: "",
           minMileage: "",
           maxMileage: "",
         }}
@@ -173,14 +174,14 @@ export default function Filters() {
                 placeholder="Choose a brand"
                 isLoading={!brandsList.length}
                 name="brand"
-                value={values.brandSelect}
-                onChange={(option) => setFieldValue("brandSelect", option)}
+                value={values.brand}
+                onChange={(option) => setFieldValue("brand", option.value)}
               />
               <ErrorMessage name="brand" component="div" className="error" />
             </label>
 
             {/* Price */}
-            <label htmlFor="priceSelect" className={styles.brandLabel}>
+            <label htmlFor="rentalPrice" className={styles.brandLabel}>
               Price/ 1 hour
               <Select
                 className={styles.formSelect}
@@ -195,9 +196,11 @@ export default function Filters() {
                   context === "menu" ? option.label : `To $${option.label}`
                 }
                 isLoading={!brandsList.length}
-                name="priceSelect"
-                value={values.priceSelect}
-                onChange={(option) => setFieldValue("priceSelect", option)}
+                name="rentalPrice"
+                value={values.rentalPrice}
+                onChange={(option) =>
+                  setFieldValue("rentalPrice", option.value)
+                }
               />
               <ErrorMessage
                 name="priceSelect"
@@ -215,14 +218,14 @@ export default function Filters() {
                   name="minMileage"
                   id="minMileage"
                   className={styles.mileageInput}
-                  placeholder="Min"
-                />
+                  placeholder="From"
+                ></Field>
                 <Field
                   type="number"
                   name="maxMileage"
                   id="maxMileage"
                   className={styles.mileageInputMax}
-                  placeholder="Max"
+                  placeholder="To"
                 />
               </div>
             </label>
