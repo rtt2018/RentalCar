@@ -4,6 +4,8 @@ import Select, { components } from "react-select";
 import { useDispatch, useSelector } from "react-redux";
 import { getBrandsListSelector } from "../../redux/brands/selectors";
 import { getBrandsList } from "../../redux/brands/operations";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
 export default function Filters() {
   const dispatch = useDispatch();
@@ -14,71 +16,90 @@ export default function Filters() {
 
   const brandsList = useSelector(getBrandsListSelector);
 
-  const customStyles = {
+  const brandSelect = {
     control: (provided, state) => ({
       ...provided,
-      margin: 0,
-      padding: 0,
-      paddingRight: 4,
-      border: "1px solid #d9d9d9",
-      borderRadius: 4,
-      width: 296,
-      minHeight: 33,
-      boxShadow: state.isFocused ? "0 0 0 2px rgba(0, 0, 0, 0.25)" : "none",
-      borderColor: state.isFocused ? "#000" : "#d9d9d9",
-      transition: "border-color 0.3s ease, box-shadow 0.3s ease",
-      "&:hover": { borderColor: "#000" },
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "start",
+      flexDirection: "row",
+      gap: 32,
+      borderRadius: 12,
+      // paddingBlock: 12,
+      paddingInline: 4,
+      width: 204,
+      height: 44,
+      background: "#f7f7f7",
+      border: "none",
+      boxShadow: "none",
+      cursor: "pointer",
     }),
+
     placeholder: (provided) => ({
       ...provided,
-      margin: 0,
-      padding: 0,
-      fontFamily: "Montserrat, sans-serif",
-      fontWeight: 400,
+      fontWeight: 500,
       fontSize: 16,
-      lineHeight: "155%",
-      color: "#595d62",
+      lineHeight: 1.25,
+      color: "#101828",
+      fontFamily: "Manrope, sans-serif",
+      margin: 0,
     }),
+
+    singleValue: (provided) => ({
+      ...provided,
+      fontWeight: 500,
+      fontSize: 16,
+      lineHeight: 1.25,
+      color: "#101828",
+      fontFamily: "Manrope, sans-serif",
+    }),
+
+    menu: (provided) => ({
+      ...provided,
+      border: "1px solid #f7f7f7",
+      borderRadius: 12,
+      width: 204,
+      height: 272,
+      boxShadow: "0 4px 36px 0 rgba(0, 0, 0, 0.02)",
+      background: "#fff",
+      marginTop: 4,
+    }),
+
+    menuList: (provided) => ({
+      ...provided,
+      paddingTop: 14,
+      paddingBottom: 14,
+      paddingLeft: 10,
+      paddingRight: 0,
+    }),
+
+    option: (provided, state) => ({
+      ...provided,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "flex-start",
+      fontWeight: 500,
+      fontSize: 16,
+      lineHeight: 1.25,
+      fontFamily: "Manrope, sans-serif",
+      color: state.isSelected ? "#101828" : "#8d929a",
+      backgroundColor: state.isFocused ? "#f2f2f2" : "#fff",
+      cursor: "pointer",
+      borderRadius: 8,
+      padding: "10px 12px",
+    }),
+
     dropdownIndicator: (provided, state) => ({
       ...provided,
-      margin: 0,
-      padding: 0,
       transition: "transform 0.2s",
       transform: state.selectProps.menuIsOpen ? "rotate(180deg)" : null,
       color: "#555",
-    }),
-    option: (provided, state) => ({
-      ...provided,
-      borderRadius: state.isFocused ? 4 : 8,
-      padding: "0 8px 0 12px",
-      height: 41,
-      display: "flex",
-      alignItems: "center",
-      width: "100%",
-      backgroundColor: state.isFocused ? "#d3d3d3" : "#fff",
-      color: "#000",
-      cursor: "pointer",
-    }),
-    menu: (provided) => ({
-      ...provided,
+      padding: 0,
       margin: 0,
-      padding: 0,
-      maxHeight: 41 * 6,
-      overflowY: "hidden",
     }),
-    menuList: (provided) => ({
-      ...provided,
-      maxHeight: 41 * 6,
-      overflowX: "hidden",
-      padding: 0,
-    }),
-    singleValue: (provided) => ({
-      ...provided,
-      fontFamily: "Montserrat, sans-serif",
-      fontWeight: 400,
-      fontSize: 16,
-      lineHeight: "155%",
-      color: "#000",
+
+    indicatorSeparator: () => ({
+      display: "none",
     }),
   };
 
@@ -104,25 +125,115 @@ export default function Filters() {
       </svg>
     </components.DropdownIndicator>
   );
+
+  const priceOptions = Array.from({ length: 20 }, (_, i) => {
+    const value = (i + 1) * 10;
+    return { value, label: value.toString() };
+  });
+
+  const validationSchema = Yup.object({
+    brandSelect: Yup.object().nullable(),
+    priceSelect: Yup.object().nullable(),
+    minMileage: Yup.number().nullable(),
+    maxMileage: Yup.number().nullable(),
+  });
+
+  const handleClick = (values) => {
+    console.log("🚀 ~ handleClick ~ values:", values);
+  };
+
   return (
     <div className={styles.container}>
-      <Select
-        options={brandsList.map((item) => {
-          return {
-            value: item,
-            label: item,
-          };
-        })}
-        styles={customStyles}
-        components={{
-          DropdownIndicator,
-          IndicatorSeparator: () => null,
+      <Formik
+        initialValues={{
+          brandSelect: null,
+          priceSelect: null,
+          minMileage: "",
+          maxMileage: "",
         }}
-        placeholder="Ingredient"
-        isLoading={!brandsList.length}
-        // onChange={handleIngredientChange}
-        // value={valueForIngredientSelect}
-      />
+        validationSchema={validationSchema}
+        onSubmit={handleClick}
+      >
+        {({ setFieldValue, values }) => (
+          <Form className={styles.filtersForm}>
+            {/* Car brand */}
+            <label htmlFor="brandSelect" className={styles.brandLabel}>
+              Car brand
+              <Select
+                className={styles.formSelect}
+                options={brandsList.map((item) => ({
+                  value: item,
+                  label: item,
+                }))}
+                styles={brandSelect}
+                components={{
+                  DropdownIndicator,
+                  IndicatorSeparator: () => null,
+                }}
+                placeholder="Choose a brand"
+                isLoading={!brandsList.length}
+                name="brand"
+                value={values.brandSelect}
+                onChange={(option) => setFieldValue("brandSelect", option)}
+              />
+              <ErrorMessage name="brand" component="div" className="error" />
+            </label>
+
+            {/* Price */}
+            <label htmlFor="priceSelect" className={styles.brandLabel}>
+              Price/ 1 hour
+              <Select
+                className={styles.formSelect}
+                options={priceOptions}
+                styles={brandSelect}
+                components={{
+                  DropdownIndicator,
+                  IndicatorSeparator: () => null,
+                }}
+                placeholder="Choose a price"
+                formatOptionLabel={(option, { context }) =>
+                  context === "menu" ? option.label : `To $${option.label}`
+                }
+                isLoading={!brandsList.length}
+                name="priceSelect"
+                value={values.priceSelect}
+                onChange={(option) => setFieldValue("priceSelect", option)}
+              />
+              <ErrorMessage
+                name="priceSelect"
+                component="div"
+                className="error"
+              />
+            </label>
+
+            {/* Mileage */}
+            <label htmlFor="minMileage" className={styles.mileageLabel}>
+              Сar mileage / km
+              <div className={styles.inputWrapper}>
+                <Field
+                  type="number"
+                  name="minMileage"
+                  id="minMileage"
+                  className={styles.mileageInput}
+                  placeholder="Min"
+                />
+                <Field
+                  type="number"
+                  name="maxMileage"
+                  id="maxMileage"
+                  className={styles.mileageInputMax}
+                  placeholder="Max"
+                />
+              </div>
+            </label>
+
+            {/* Submit */}
+            <button type="submit" className={styles.submitButton}>
+              Search
+            </button>
+          </Form>
+        )}
+      </Formik>
     </div>
   );
 }

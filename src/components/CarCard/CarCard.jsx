@@ -1,10 +1,36 @@
 import { Link } from "react-router";
 import styles from "./CarCard.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getFavoritesList } from "../../redux/favorites/selectors";
+import { toggleFavorites } from "../../redux/favorites/slice";
 
 export default function CarCard({ car }) {
+  const dispatch = useDispatch();
+  const favorites = useSelector(getFavoritesList);
+  const isFavorite = favorites.includes(car.id);
+
+  function toggleFavorite() {
+    dispatch(toggleFavorites(car.id));
+  }
+
   return (
     <li className={styles.container} key={car.id}>
       <div className={styles.card}>
+        <button
+          type="button"
+          onClick={toggleFavorite}
+          className={styles.favButton}
+        >
+          {isFavorite ? (
+            <svg className={styles.addedFavoritesIcon}>
+              <use href="/sprite.svg#icon-added-fav"></use>
+            </svg>
+          ) : (
+            <svg className={styles.addFavoritesIcon}>
+              <use href="/sprite.svg#icon-add-fav"></use>
+            </svg>
+          )}
+        </button>
         <div className={styles.thumb}>
           <img className={styles.carImg} src={car.img} alt={car.alt} />
         </div>

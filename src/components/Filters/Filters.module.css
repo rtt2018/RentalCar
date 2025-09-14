@@ -1,3 +1,77 @@
 .container {
   /* styles for Filters */
+  padding: 84px 138px 56px;
+}
+
+.brandLabel {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33333;
+  color: var(--gray);
+  display: block;
+  width: 204px;
+  text-align: left;
+}
+
+.formSelect {
+  margin-top: 8px;
+}
+
+.mileageLabel {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33333;
+  color: var(--gray);
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  text-align: left;
+}
+
+.inputWrapper {
+  display: flex;
+  margin-top: 8px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.mileageInput {
+  border: none;
+  border-right: 1px solid #dadde1;
+  border-radius: 12px 0 0 12px;
+  width: 160px;
+  height: 44px;
+  background-color: #f7f7f7;
+  outline: none;
+  box-sizing: border-box;
+  padding: 12px 24px;
+}
+
+.mileageInputMax {
+  border: none;
+  border-radius: 0 12px 12px 0;
+  border-left: 1px solid #dadde1;
+  width: 160px;
+  height: 44px;
+  background-color: #f7f7f7;
+  outline: none;
+  box-sizing: border-box;
+  padding: 12px 24px;
+}
+
+.filtersForm {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.submitButton {
+  width: 156px;
+  height: 44px;
 }

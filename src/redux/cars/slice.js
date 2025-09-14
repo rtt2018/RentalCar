@@ -53,6 +53,11 @@ const carsSlice = createSlice({
 
         if (page > 1) {
           state.cars = [...(state.cars || []), ...(cars || [])];
+          const map = new Map(state.cars.map((item) => [item.id, item]));
+          cars.forEach((item) => {
+            map.set(item.id, item);
+          });
+          state.cars = Array.from(map.values());
         } else {
           state.cars = cars || [];
         }

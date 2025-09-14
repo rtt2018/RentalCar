@@ -1,0 +1,20 @@
+.container {
+  /* styles for ListItem */
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.iconMarker {
+  width: 16px;
+  height: 16px;
+}
+
+.description {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+  margin: 0;
+}

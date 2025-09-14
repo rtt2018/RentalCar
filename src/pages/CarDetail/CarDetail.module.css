@@ -1,3 +1,263 @@
 .container {
   /* styles for CarDetail */
+  padding: 84px 120px;
+}
+
+.wrapper {
+  display: flex;
+  gap: 72px;
+}
+
+.thumb {
+  width: 640px;
+  height: 512px;
+  overflow: hidden;
+  border-radius: 19px;
+}
+
+.carImg {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.carHead {
+  text-align: left;
+}
+
+.headerWrapper {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
+  align-items: center;
+}
+
+.carHeader {
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  text-align: left;
+  color: #101828;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.idContainer {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8d929a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.locationWrapper {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+  margin-bottom: 16px;
+}
+
+.addressWrapper {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.locationIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.priceCondition {
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  color: #3470ff;
+  margin-bottom: 32px;
+}
+
+.carDescription {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+  margin: 0 0 68px;
+}
+
+.listsWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 772px;
+  justify-content: space-between;
+}
+
+.listDescrItem {
+  flex: 0 0 auto;
+}
+
+.conditionHead {
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+  margin: 0 0 20px;
+  text-align: left;
+}
+
+.conditionList {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  padding: 0;
+  list-style: none;
+}
+
+.conditionListSpec {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.iconMarker {
+  width: 16px;
+  height: 16px;
+}
+
+.listItemSpec {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+  margin: 0;
+}
+
+.description {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+  margin: 0;
+}
+
+.imgFormWrap {
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+}
+
+.rentForm {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 640px;
+  height: 488px;
+  border: 1px solid var(--gray-light);
+  border-radius: 10px;
+  padding: 32px;
+  width: 640px;
+  height: 488px;
+}
+
+.formHeader {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--main);
+  margin: 0;
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.formDescr {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--gray);
+  margin: 0;
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formFieldLabel {
+}
+
+.formField {
+  box-sizing: border-box;
+  border-radius: 12px;
+  padding-block: 12px;
+  padding-inline: 20px;
+  width: 576px;
+  height: 48px;
+  background: var(--inputs);
+  border: none;
+}
+
+.formFieldComment {
+  box-sizing: border-box;
+  border-radius: 12px;
+  padding-block: 12px;
+  padding-inline: 20px;
+  width: 576px;
+  height: 48px;
+  background: var(--inputs);
+  border: none;
+  height: 88px;
+}
+
+.formFieldItem {
+  position: relative;
+}
+
+.buttonSubmit {
+  width: 156px;
+  height: 44px;
+  margin: 0 auto;
+}
+
+.input::placeholder {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--gray);
+}
+
+.error {
+  font-family: var(--font-family);
+  color: red;
+  font-size: 12px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
