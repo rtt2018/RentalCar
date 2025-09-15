@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./CarList.module.css";
-import { getCars, getPage, getRentalPrice } from "../../redux/cars/selectors";
+import { getLimit, getCars, getPage } from "../../redux/cars/selectors";
 import {
-  getLimit,
+  getRentalPrice,
   getMaxMileage,
   getMinMileage,
 } from "../../redux/filters/selectors";

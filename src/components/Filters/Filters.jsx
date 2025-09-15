@@ -140,6 +140,7 @@ export default function Filters() {
   });
 
   const handleClick = (values) => {
+    console.log("🚀 ~ handleClick ~ values:", values);
     dispatch(setAllFilters(values));
   };
 
@@ -174,7 +175,7 @@ export default function Filters() {
                 placeholder="Choose a brand"
                 isLoading={!brandsList.length}
                 name="brand"
-                value={values.brand}
+                value={values.brand.value}
                 onChange={(option) => setFieldValue("brand", option.value)}
               />
               <ErrorMessage name="brand" component="div" className="error" />
@@ -197,9 +198,9 @@ export default function Filters() {
                 }
                 isLoading={!brandsList.length}
                 name="rentalPrice"
-                value={values.rentalPrice}
+                value={values.rentalPrice.value}
                 onChange={(option) =>
-                  setFieldValue("rentalPrice", option.value)
+                  setFieldValue("rentalPrice", option.value.toString())
                 }
               />
               <ErrorMessage
