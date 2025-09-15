@@ -72,6 +72,7 @@ export default function Filters() {
       paddingBottom: 14,
       paddingLeft: 10,
       paddingRight: 0,
+      height: 258,
     }),
 
     option: (provided, state) => ({
@@ -140,7 +141,6 @@ export default function Filters() {
   });
 
   const handleClick = (values) => {
-    console.log("🚀 ~ handleClick ~ values:", values);
     dispatch(setAllFilters(values));
   };
 
