@@ -22,7 +22,7 @@ a {
   transition: color 300ms ease-in-out;
 }
 a:hover {
-  background: var(--button-hover);
+  color: var(--button-hover);
 }
 
 body {
